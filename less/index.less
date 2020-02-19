@@ -19,8 +19,6 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -49,11 +47,73 @@ table {
 }
 
 /* Set every element's box-sizing to border-box */
-* {
-    box-sizing: border-box;
+*, *:before, *:after {
+	box-sizing: border-box;
+	max-width: 100%;
+	// border: 1px solid grey;
 }
 
-html, body {
-    height: 100%;
+html{
+	font-size: 62.5%; 
 }
 
+body {
+	font-size: 1.5rem;
+}
+
+// Mixins 
+.pageFlow() {
+	display: flex;
+	padding: 5%;
+	flex-flow: column wrap;
+}
+
+.main-container {
+	width: 95%;
+	margin: 0 auto;
+	display: flex;
+	//font-size: 1.7rem;
+}
+
+h1, h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4 {
+	font-size: 1.7rem;
+}
+
+aside{
+	.pageFlow();
+	width: 35%;
+
+	header, div.aside {
+		margin: 5% 0;
+		text-align: center;
+	}//header, div.aside closer
+}
+
+div.content {
+	.pageFlow();
+	width: 65%;
+	justify-content: space-evenly;
+	section {
+		//margin: 3% 0;
+
+		div, h3, h4, h2{
+			margin: 1.5% 0;
+		}
+
+		h2 {
+			border-bottom: 2px solid black;
+			padding-bottom: 3%;
+		}
+		li {
+			line-height: 1.3;
+		}
+	}
+}
