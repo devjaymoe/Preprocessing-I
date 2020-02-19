@@ -67,16 +67,28 @@ body {
 	padding: 5%;
 	flex-flow: column wrap;
 }
+.navFlow() {
+	display:flex;
+	justify-content: space-between;
+}
+
+// Variables
+@mainColor: #4b6cb7;
+@offWhite: #f1efe0;
+@offBlack: #33332e;
 
 .main-container {
 	width: 95%;
 	margin: 0 auto;
 	display: flex;
+	@media (max-width:500px){
+		flex-direction: column;
+	}
 	//font-size: 1.7rem;
 }
 
 h1, h2 {
-	font-size: 2rem;
+	font-size: 2.2rem;
 }
 
 h3 {
@@ -90,30 +102,78 @@ h4 {
 aside{
 	.pageFlow();
 	width: 35%;
+	background: @mainColor;
 
 	header, div.aside {
 		margin: 5% 0;
 		text-align: center;
 	}//header, div.aside closer
-}
+
+	h1 {
+		color: @offWhite;
+	}
+
+	h2 {
+		margin: 1.5% 0;
+		color: @offBlack;
+	}
+
+	li, p, address {
+		line-height: 1.3;
+		color: @offWhite;
+	}
+
+	header {
+		img{
+			border-radius: 50%;
+			border: 4px solid @offWhite;
+		}
+		h3 {
+			padding-bottom: 5%;
+			border-bottom: 2px solid @offBlack;
+			color: @offBlack;
+		}
+	}
+
+}//aside closer
 
 div.content {
 	.pageFlow();
 	width: 65%;
 	justify-content: space-evenly;
+	background-color: @offWhite;
+
+	nav {
+		.navFlow();
+		a {
+			text-decoration: none;
+			color: @offBlack;
+			font-size: 1.2rem;
+			&:hover {
+				color: @mainColor;
+			}//psudo end
+		}//a end
+	}//nav end
 	section {
 		//margin: 3% 0;
 
 		div, h3, h4, h2{
 			margin: 1.5% 0;
-		}
+		}//div etc closer
 
 		h2 {
-			border-bottom: 2px solid black;
+			color: @mainColor;
+			border-bottom: 2px solid @offBlack;
 			padding-bottom: 3%;
+		}//h2 closer
+
+		h3, h4 {
+			color: @offBlack;
 		}
+
 		li {
 			line-height: 1.3;
-		}
-	}
-}
+			color: @mainColor;
+		}//li closer
+	}//section closer
+}//div.content closer

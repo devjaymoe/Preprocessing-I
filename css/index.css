@@ -142,9 +142,14 @@ body {
   margin: 0 auto;
   display: flex;
 }
+@media (max-width: 500px) {
+  .main-container {
+    flex-direction: column;
+  }
+}
 h1,
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 h3 {
   font-size: 1.8rem;
@@ -157,11 +162,34 @@ aside {
   padding: 5%;
   flex-flow: column wrap;
   width: 35%;
+  background: #4b6cb7;
 }
 aside header,
 aside div.aside {
   margin: 5% 0;
   text-align: center;
+}
+aside h1 {
+  color: #f1efe0;
+}
+aside h2 {
+  margin: 1.5% 0;
+  color: #33332e;
+}
+aside li,
+aside p,
+aside address {
+  line-height: 1.3;
+  color: #f1efe0;
+}
+aside header img {
+  border-radius: 50%;
+  border: 4px solid #f1efe0;
+}
+aside header h3 {
+  padding-bottom: 5%;
+  border-bottom: 2px solid #33332e;
+  color: #33332e;
 }
 div.content {
   display: flex;
@@ -169,6 +197,19 @@ div.content {
   flex-flow: column wrap;
   width: 65%;
   justify-content: space-evenly;
+  background-color: #f1efe0;
+}
+div.content nav {
+  display: flex;
+  justify-content: space-between;
+}
+div.content nav a {
+  text-decoration: none;
+  color: #33332e;
+  font-size: 1.2rem;
+}
+div.content nav a:hover {
+  color: #4b6cb7;
 }
 div.content section div,
 div.content section h3,
@@ -177,9 +218,15 @@ div.content section h2 {
   margin: 1.5% 0;
 }
 div.content section h2 {
-  border-bottom: 2px solid black;
+  color: #4b6cb7;
+  border-bottom: 2px solid #33332e;
   padding-bottom: 3%;
+}
+div.content section h3,
+div.content section h4 {
+  color: #33332e;
 }
 div.content section li {
   line-height: 1.3;
+  color: #4b6cb7;
 }
