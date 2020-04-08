@@ -19,8 +19,6 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -49,11 +47,167 @@ table {
 }
 
 /* Set every element's box-sizing to border-box */
-* {
-    box-sizing: border-box;
+*, *:before, *:after {
+	box-sizing: border-box;
+	max-width: 100%;
+	// border: 1px solid grey;
 }
 
-html, body {
-    height: 100%;
+html{
+	font-size: 62.5%; 
+}
+@import url('https://fonts.googleapis.com/css?family=Odibee+Sans|Roboto&display=swap');
+body {
+	font-size: 1.5rem;
 }
 
+// Mixins 
+.pageFlow() {
+	display: flex;
+	padding: 5%;
+	flex-flow: column wrap;
+}
+.navFlow() {
+	display:flex;
+	justify-content: space-between;
+}
+
+// Variables
+@mainColor: #4b6cb7;
+@offWhite: #f1efe0;
+@offBlack: #33332e;
+
+.main-container {
+	width: 95%;
+	margin: 0 auto;
+	display: flex;
+	@media (max-width:500px){
+		flex-direction: column;
+	}
+	//font-size: 1.7rem;
+}
+
+h1, h2 {
+	font-size: 2.2rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4 {
+	font-size: 1.7rem;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Odibee Sans', cursive;
+}
+
+a, p, li, address {
+	font-family: 'Roboto', sans-serif;
+}
+
+aside{
+	.pageFlow();
+	width: 35%;
+	background: @mainColor;
+	nav{
+		display:none;
+	}
+	header, div.aside {
+		margin: 5% 0;
+		text-align: center;
+	}//header, div.aside closer
+
+	h1 {
+		color: @offWhite;
+	}
+
+	h2 {
+		margin: 1.5% 0;
+		color: @offBlack;
+	}
+
+	li, p, address {
+		line-height: 1.3;
+		color: @offWhite;
+	}
+
+	header {
+		img{
+			border-radius: 50%;
+			border: 4px solid @offWhite;
+		}
+		h3 {
+			padding-bottom: 5%;
+			border-bottom: 2px solid @offBlack;
+			color: @offBlack;
+		}
+	}
+	@media (max-width: 500px){
+		width:100%;
+		nav{
+			.navFlow();
+			a {
+				text-decoration: none;
+				color: @offBlack;
+				font-size: 1.4rem;
+				&:hover {
+					color: @offWhite;
+				}//psudo end
+			}//a end
+		}
+	}
+}//aside closer
+
+div.content {
+	.pageFlow();
+	width: 65%;
+	justify-content: space-evenly;
+	background-color: @offWhite;
+
+	nav {
+		.navFlow();
+		a {
+			text-decoration: none;
+			color: @offBlack;
+			font-size: 1.4rem;
+			&:hover {
+				color: @mainColor;
+			}//psudo end
+		}//a end
+	}//nav end
+	section {
+		//margin: 3% 0;
+
+		div, h3, h4, h2{
+			margin: 1.5% 0;
+		}//div etc closer
+
+		h2 {
+			color: @mainColor;
+			border-bottom: 2px solid @offBlack;
+			padding-bottom: 3%;
+		}//h2 closer
+
+		h3, h4 {
+			color: @offBlack;
+		}
+
+		li {
+			line-height: 1.3;
+			color: @mainColor;
+			list-style-type: disc;
+			margin-left: 2%;
+		}//li closer
+	}//section closer
+	@media(max-width: 500px){
+		width:100%;
+		nav{
+			display: none;
+		}
+		section li{
+			margin-left: 5%;
+		}
+	}
+}//div.content closer
